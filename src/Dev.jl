@@ -1,7 +1,7 @@
 module Dev
 
 
-export test, cover, init
+export test, cover, init, Pkg
 
 using Revise
 using LocalCoverage
@@ -70,13 +70,34 @@ function create_git()
     end
 end
 
+
+function add_package(package)
+    package_s = Symbol(package)
+    if !isdefined(Main, package_s)
+        println("Pkg.add(\"", package, "\")")
+        Pkg.add(package)
+    end
+end
+
+function add_packages()
+    packages = ["Test", "Lazy"]
+
+    for package in packages
+        add_package(package)
+    end
+end
+
 function init()
     println("Let’s go !")
     Pkg.activate(".")
 
     create_readme()
     create_test()
-    create_git();
+    create_git()
+    add_packages()
+
+    module_name = get_module()
+    println("using $module_name")
 end
 
 function test()
