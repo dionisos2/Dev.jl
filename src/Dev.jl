@@ -73,7 +73,7 @@ end
 
 function add_package(package)
     package_s = Symbol(package)
-    if haskey(Pkg.installed(), package)
+    if !haskey(Pkg.installed(), package)
         println("Pkg.add(\"", package, "\")")
         Pkg.add(package)
     end
