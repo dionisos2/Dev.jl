@@ -97,7 +97,9 @@ function init()
     add_packages()
 
     module_name = get_module()
-    println("using $module_name")
+    println("Using $module_name")
+    mod_sym = Symbol(module_name)
+    @eval using $mod_sym
 end
 
 function test()
