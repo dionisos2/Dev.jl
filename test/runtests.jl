@@ -1,4 +1,8 @@
 using Test
 using Dev
 
-@test 1==1
+tests = ["myobject_test.jl"]
+
+for test in tests
+    include(test)
+end

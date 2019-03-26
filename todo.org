@@ -1,0 +1,4 @@
+* DONE add new tests structure to Dev package
+* DONE add todo.org to Dev package
+* DONE add start function to Dev package
+* DONE add object structure to Dev package
