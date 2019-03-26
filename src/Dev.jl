@@ -8,9 +8,6 @@ using Revise
 using LocalCoverage
 using Pkg
 
-include("myobject.jl")
-export MyObject
-
 function get_module()
     return string(split(pwd(), "/")[end])
 end
@@ -172,8 +169,16 @@ function init()
     create_git()
     add_packages()
 
-    println("Now use start() each time you come back")
     module_name = get_module()
+
+    println("To add inside $module_name.jl :")
+    println("")
+    println("""include("myobject.jl")""")
+    println("export MyObject")
+    println("")
+
+    println("Now use start() each time you come back")
+
     println("run 'using '$module_name'")
 end
 

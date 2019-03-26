@@ -1,7 +1,7 @@
 using Test
 using Dev
 
-tests = ["myobject_test.jl"]
+tests = []
 
 for test in tests
     include(test)
