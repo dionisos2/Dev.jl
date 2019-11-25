@@ -1,6 +1,18 @@
 # Dev
 A package to help my personnal workflow
 ## How to use
+### Install
+```console
+
+shell> julia
+
+julia> ]
+
+pkg> add https://github.com/dionisos2/Utils.jl
+
+pkg> add https://github.com/dionisos2/Dev.jl
+
+```
 ### Building a new package
 ```console
 
