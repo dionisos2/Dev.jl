@@ -51,3 +51,8 @@ julia> test()
 julia> cover() # You will need the genhtml command(markdown) to see stuffs
 
 ```
+
+### Misc
+```console
+julia> rs #to force a Revise.revise
+```
