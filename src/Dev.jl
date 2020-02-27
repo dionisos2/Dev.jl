@@ -202,7 +202,7 @@ end
 
 function test()
     # Pkg.test()
-    include("test/runtests.jl")
+    Base.include(Main, "test/runtests.jl")
 end
 
 function cover()
