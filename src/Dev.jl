@@ -1,12 +1,23 @@
 module Dev
 
 
-export test, cover, init, Pkg, start
+export test, cover, init, Pkg, start, rs
 
 import Coverage
 using Revise
 using LocalCoverage
 using Pkg
+
+struct ReviseSpawn
+end
+
+rs = ReviseSpawn()
+
+function Base.display(_::ReviseSpawn)
+    println("reload project")
+    revise()
+end
+
 
 function get_module()
     return string(split(pwd(), "/")[end])
@@ -184,12 +195,14 @@ end
 
 function start()
     Pkg.activate(".")
-    module_name = get_module()
-    println("run 'using '$module_name'")
+    module_name = Symbol(get_module())
+    println("using $module_name")
+    eval(:(using $module_name))
 end
 
 function test()
-    Pkg.test()
+    # Pkg.test()
+    include("test/runtests.jl")
 end
 
 function cover()
