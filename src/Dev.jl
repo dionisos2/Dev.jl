@@ -197,7 +197,7 @@ function start()
     Pkg.activate(".")
     module_name = Symbol(get_module())
     println("using $module_name")
-    eval(:(using $module_name))
+    eval(Main, :(using $module_name))
 end
 
 function test()
